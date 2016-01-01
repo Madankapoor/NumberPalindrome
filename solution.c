@@ -3,13 +3,7 @@
 #define MAXSIZE 1000000
 char k[MAXSIZE+2];
 
-int twopalindromehandler(int i,int j) // returns 0 on no carry
-// returns 1 on carry
-{
 
-
-	
-}
 
 int main()
 {
@@ -35,6 +29,8 @@ int main()
 		}
 		k[i]='\0';
 		length=i;
+		puts(k);
+		putchar('/');
 		if(isnineseries)
 		{
 			int j=0;
@@ -46,15 +42,43 @@ int main()
 		}
 		else if(length%2==0)
 		{
-			int i=length/2,j=length/2+1,carryset=0;
+			int i=length/2-1,j=length/2,larger=0,carryset=1;
 			while( i >= 0 && j < length )
 			{
-				if((k[i]-k[j])!=0)
-				{	ispalindrome=0;
-					twopalindromehandler(i,j);
+				if(!larger)
+				{
+				    if(k[i]==k[j] ) // when two are equal
+				   {   if( k[i]=='9')
+				        {
+				            larger=0;
+				            k[i]='0';
+				            carryset=1;
+				        }
+				        else 
+				        {
+				            k[i]++;
+				            larger=1;
+				            carryset=0;
+				        }
+				    }
+				    else 
+				    {   
+				        if(carryset && k[i] > k[j])
+				        {   
+				            k[i]++;
+				            k[j]++;
+				            carryset=0;
+				        } 
+				        if(k[i] < k[j])
+				            k[i]++;
+				        larger=1;
+				        
+				    }
 				}
+				k[j]=k[i];
+				j++;
+				i--;
 			}
-			
 		}
 		else
 		{
