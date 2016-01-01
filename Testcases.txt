@@ -1,0 +1,78 @@
+Test Cases given by madan kapoor b
+
+One digit
+1
+2
+3
+::just print it as it is;
+
+Two digits
+90
+/99
+10
+/11
+32
+/33
+89
+/99
+29
+/33
+12
+/22
+function two digit handler:
+:: if tens digit is less than the ones digit:
+::	increment tens digit by one. 
+::	set ones digit to tens digit.
+:: else
+::	set ones digit to tens digit. 
+
+even no of digits
+	already a palindrome:
+		4444
+		/4554
+		2112
+		/2222
+		5665
+		/5775
+		1221
+		/1331
+		1991
+		/2002
+		899998
+		/900009
+		::if the middle digit and the digit next to it on right  are nine,
+		::	then make them zero 
+		::	and pass the carry across digits in both sides
+	series of 9 digits:
+		99999
+		/100001
+		::replace first nine by one and all other nines by zeros
+		::add a one at the end
+	default one:
+		1245
+	/	1331
+		7894
+	/	7997
+		5456
+	/	5555
+		8756
+	/	8776
+		1534
+	/	1551
+		978455
+	/	978879
+		684135
+	/	684486
+		846515
+	/	846648
+		84599456
+	/	84599548
+		84399456
+	/	84499448
+		85499456
+	/	85499458
+		::
+			Take middle two digits and use the function two_digit_handler with carry across till
+			larger condition is possible
+			after than set lefts digit to right digit till end
+odd no of digits
