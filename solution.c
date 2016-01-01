@@ -41,9 +41,27 @@ int main()
 			k[j++]='1';
 			k[j]='\0';
 		}
-		else if(length%2==0)
+		else 
 		{
-			int i=length/2-1,j=length/2,larger=0,carryset=1;
+			int i=length/2-1,j=length/2,larger=0,carryset=0;
+			if(length%2!=0)
+			{
+			    j++;
+			    if(k[i] > k[j])
+			    {   k[j]=k[i];
+			        larger=1;
+			        carryset=0;
+			    }
+			    else if(k[i] <= k[j])
+			    {
+			        k[length/2]++;
+			        k[j]=k[i];
+			        larger=1;
+			        carryset=0;
+			    }
+			    j++;
+			    i--;
+			}
 			while( i >= 0 && j < length )
 			{
 				if(!larger)
@@ -81,10 +99,7 @@ int main()
 				i--;
 			}
 		}
-		else
-		{
-			
-		}
+	    
 		puts(k);//solution
 	}
 	return 0;
